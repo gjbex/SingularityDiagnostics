@@ -30,5 +30,6 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     cd SingularityDiagnostics
     make clean hello.exe
     cp hello.exe /usr/bin/
+    cp run_hello.sh /usr/bin/
     cd /tmp
     rm -rf SingularityDiagnostics
