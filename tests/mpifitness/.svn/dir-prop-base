@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 94
+mpifitness
+core
+cl_params.c
+cl_params.h
+cl_params_aux.c
+cl_params_aux.h
+pompregions_*_src.txt
+
+END

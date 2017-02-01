@@ -1,0 +1,123 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 32
+/FOOCES_Onderzoek/repo/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/FOOCES_Onderzoek/repo/!svn/ver/2041/Services/HPC/MpiFitness/trunk/src
+END
+all-to-all.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/all-to-all.c
+END
+ping-pong.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/ping-pong.c
+END
+test-nonverbose.conf
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/FOOCES_Onderzoek/repo/!svn/ver/1353/Services/HPC/MpiFitness/trunk/src/test-nonverbose.conf
+END
+all-to-all.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/all-to-all.h
+END
+ping-pong.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/ping-pong.h
+END
+reduce.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/reduce.c
+END
+appl-params.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/appl-params.txt
+END
+warmup.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/warmup.c
+END
+reduce.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/reduce.h
+END
+util.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/util.c
+END
+warmup.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/warmup.h
+END
+present.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/FOOCES_Onderzoek/repo/!svn/ver/1086/Services/HPC/MpiFitness/trunk/src/present.c
+END
+test.conf
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/FOOCES_Onderzoek/repo/!svn/ver/1450/Services/HPC/MpiFitness/trunk/src/test.conf
+END
+util.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/util.h
+END
+mpi-io-write.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/mpi-io-write.c
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/FOOCES_Onderzoek/repo/!svn/ver/2041/Services/HPC/MpiFitness/trunk/src/main.c
+END
+present.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/present.h
+END
+mpi-io-write.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/mpi-io-write.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/FOOCES_Onderzoek/repo/!svn/ver/2009/Services/HPC/MpiFitness/trunk/src/Makefile
+END

@@ -1,0 +1,39 @@
+INSTR     = 
+CC        = mpicc
+CFLAGS    = -O2
+MPI_INC   =
+CPPFLAGS += $(MPI_INC)
+LDFLAGS   =
+MPI_LIB   =
+PROF      =
+LIBS     += $(MPI_LIB) $(PROF)
+EXEC_NAME = mpifitness
+
+TESTS = present warmup ping-pong reduce all-to-all mpi-io-write
+
+TEST_OBJS = $(patsubst %, %.o, $(TESTS))
+OBJS      = main.o util.o cl_params.o cl_params_aux.o $(TEST_OBJS)
+
+all: mpifitness
+
+mpifitness: cl_params.h $(OBJS)
+	$(INSTR) $(CC) $(CFLAGS) $(CPPFLAGS) -o $@ $(OBJS) $(LDFLAGS) $(LIBS)
+
+%.o: %.c
+	$(INSTR) $(CC) $(CFLAGS) $(CPPFLAGS) -c $<
+
+cl_params.o: cl_params.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $<
+
+cl_params_aux.o: cl_params_aux.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $<
+
+cl_params.h: appl-params.txt
+	weave -l C -d $<
+
+clean:
+	rm -f *.o mpifitness cl_params.[ch] cl_params_aux.[ch]
+
+install: all
+	cp mpifitness ../$(EXEC_NAME)
+	

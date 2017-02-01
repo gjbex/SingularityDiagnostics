@@ -27,9 +27,12 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     apt-get -y install git
     cd /tmp
     git clone https://github.com/gjbex/SingularityDiagnostics.git
-    cd SingularityDiagnostics
-    make clean hello.exe
-    cp hello.exe /usr/bin/
-    cp run_hello.sh /usr/bin/
+    cd SingularityDiagnostics/tests/
+    for diag in 'process_placement' 'mpifitness';
+    do
+        cd $diag
+        make clean install
+        cd ..
+    done
     cd /tmp
     rm -rf SingularityDiagnostics

@@ -1,0 +1,16 @@
+int	verbose	1
+int	doPresent	1
+int	doP2pWarmup	1
+int	doPingPong	1
+int	pp_msgSize	65536
+int	pp_nrMsgs	1000
+int	doReduce	1
+int	reduce_size	100000
+int	reduce_nr	10
+int	doAllToAll	1
+int	allToAll_size	1000
+int	allToAll_nr	10
+int	doMpiFileWrite	0
+char *	iow_fileName	'/scratch/leuven/301/vsc30140/iow'
+long	iow_nrWords	1600000000
+long	iow_nrWordsBuffer	1000000
