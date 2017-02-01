@@ -1,5 +1,5 @@
 CC = mpicc
-CFLAGS = -O2 -g
+CFLAGS = -O2 -g -Wall
 
 all: process_placement.exe
 
