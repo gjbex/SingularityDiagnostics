@@ -25,6 +25,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     apt-get -y install openmpi-bin
     apt-get -y install openmpi-common
     apt-get -y install git
+    mkdir -p /usr/share/tests/
     cd /tmp
     if [ ! -e SingularityDiagnostics ]
     then
