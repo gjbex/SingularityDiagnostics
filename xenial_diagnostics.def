@@ -26,8 +26,14 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     apt-get -y install openmpi-common
     apt-get -y install git
     cd /tmp
-    git clone https://github.com/gjbex/SingularityDiagnostics.git
-    cd SingularityDiagnostics/tests/
+    if [ ! -e SingularityDiagnostics ]
+    then
+        git clone https://github.com/gjbex/SingularityDiagnostics.git
+        cd SingularityDiagnostics/tests/
+    else
+        cd SingularityDiagnostics/tests/
+        git pull origin master
+    fi
     for diag in 'process_placement' 'mpifitness';
     do
         cd $diag
