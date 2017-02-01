@@ -1,7 +1,7 @@
 CC = mpicc
 CFLAGS = -O2 -g
 
-all: hello.exe
+all: process_placement.exe
 
 %.exe: %.c
 	$(CC) $(CFLAGS) -o $@ $<
