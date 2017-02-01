@@ -26,4 +26,4 @@ clean:
 	rm -f *.o mpifitness
 
 install: all
-	cp mpifitness.exe usr/bin/$(EXEC_NAME)
+	cp mpifitness.exe ./usr/bin/
