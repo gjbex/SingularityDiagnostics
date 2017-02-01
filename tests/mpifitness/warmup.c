@@ -11,8 +11,8 @@
 
 int warmup(MPI_Comm comm, Params conf) {
     MPI_Status mpiStatus;
-    int size, rank, n = 0, source, status;
-    struct timeval startTime, endTime, currTime;
+    int size, rank, n = 0, source;
+    struct timeval startTime, endTime;
     char *sBuff, *rBuff;
     if ((sBuff = (char *) calloc(conf.pp_msgSize, sizeof(char))) == NULL) {
         warnx("can't allocate sBuff of size %d", conf.pp_msgSize);
@@ -46,17 +46,13 @@ int warmup(MPI_Comm comm, Params conf) {
                 report(conf, n, SEND, source, dest, START);
                 gettimeofday(&startTime, NULL);
                 if (MPI_Send(sBuff, conf.pp_msgSize, MPI_CHAR,
-                            dest, PING, comm) != 0) {
-                    warnx("MPI_Send from %d to %d returned status %d",
-                            status, source, dest);
+                             dest, PING, comm) != 0) {
                     MPI_Abort(comm, EXIT_FAILURE);
                 }
                 report(conf, n, SEND, source, dest, END);
                 report(conf, n, RECV, dest, source, START);
                 if (MPI_Recv(rBuff, conf.pp_msgSize, MPI_CHAR,
-                            dest, PONG, comm, &mpiStatus) != 0) {
-                    warnx("MPI_Recv from %d by %d returned status %d",
-                            status, source, dest);
+                             dest, PONG, comm, &mpiStatus) != 0) {
                     MPI_Abort(comm, EXIT_FAILURE);
                 }
                 report(conf, n, RECV, dest, source, END);
@@ -73,16 +69,12 @@ int warmup(MPI_Comm comm, Params conf) {
             report(conf, n, RECV, source, rank, START);
             if (MPI_Recv(rBuff, conf.pp_msgSize, MPI_CHAR,
                          source, PING, comm, &mpiStatus) != 0) {
-                warnx("MPI_Recv from %d by %d returned status %d",
-                      status, source, rank);
                 MPI_Abort(comm, EXIT_FAILURE);
             }
             report(conf, n, RECV, source, rank, END);
             report(conf, n, SEND, rank, source, START);
             if (MPI_Send(rBuff, conf.pp_msgSize, MPI_CHAR,
                          source, PONG, comm) != 0) {
-                warnx("MPI_Send from %d to %d returned status %d",
-                      status, rank, source);
                 MPI_Abort(comm, EXIT_FAILURE);
             }
             report(conf, n, SEND, rank, source, END);

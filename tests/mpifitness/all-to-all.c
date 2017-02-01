@@ -9,7 +9,7 @@
 int allToAll(MPI_Comm comm, Params conf) {
     int size, rank, i, j, n, status, nr = conf.allToAll_size;
     int *sBuff, *rBuff;
-    struct timeval startTime, endTime, currTime;
+    struct timeval startTime, endTime;
     MPI_Comm_size(comm, &size);
     MPI_Comm_rank(comm, &rank);
     if ((sBuff = (int *) calloc(nr*size, sizeof(int))) == NULL) {
@@ -38,9 +38,9 @@ int allToAll(MPI_Comm comm, Params conf) {
         report(conf, n, ALL_TO_ALL, rank, -1, START);
         if (rank == 0)
             gettimeofday(&startTime, NULL);
-        if (status = MPI_Alltoall(sBuff, nr, MPI_INT,
-                                  rBuff, nr, MPI_INT,
-                                  comm)) {
+        if ((status = MPI_Alltoall(sBuff, nr, MPI_INT,
+                                   rBuff, nr, MPI_INT,
+                                   comm)) != 0) {
             warnx("MPI_Alltoall from %d returned status %d", rank, status);
             MPI_Abort(comm, EXIT_FAILURE);
         }

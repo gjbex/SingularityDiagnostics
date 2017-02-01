@@ -8,9 +8,8 @@
 
 int reduce(MPI_Comm comm, Params conf) {
     int size, rank, i, n, status;
-    double *sBuff, *rBuff;
-    double sum = 0.0;
-    struct timeval startTime, endTime, currTime;
+    double *sBuff = NULL, *rBuff = NULL;
+    struct timeval startTime, endTime;
     MPI_Comm_size(comm, &size);
     MPI_Comm_rank(comm, &rank);
     if ((sBuff = (double *) calloc(conf.reduce_size, sizeof(double))) == NULL) {
@@ -40,8 +39,8 @@ int reduce(MPI_Comm comm, Params conf) {
         report(conf, n, REDUCE, rank, 0, START);
         if (rank == 0)
             gettimeofday(&startTime, NULL);
-        if (status = MPI_Reduce(sBuff, rBuff, conf.reduce_size, MPI_DOUBLE,
-                                MPI_SUM, 0, comm)) {
+        if ((status = MPI_Reduce(sBuff, rBuff, conf.reduce_size, MPI_DOUBLE,
+                                 MPI_SUM, 0, comm)) != 0) {
             warnx("MPI_Reduce to %d returned status %d", 0, status);
             MPI_Abort(comm, EXIT_FAILURE);
         }

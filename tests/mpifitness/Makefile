@@ -1,6 +1,6 @@
 INSTR     = 
 CC        = mpicc
-CFLAGS    = -O2 -g
+CFLAGS    = -O2 -g -Wall
 MPI_INC   =
 CPPFLAGS += $(MPI_INC)
 LDFLAGS   =
@@ -9,7 +9,7 @@ PROF      =
 LIBS     += $(MPI_LIB) $(PROF)
 EXEC_NAME = mpifitness
 
-TESTS = present warmup ping-pong reduce all-to-all mpi-io-write
+TESTS = present warmup ping-pong reduce all-to-all
 
 TEST_OBJS = $(patsubst %, %.o, $(TESTS))
 OBJS      = main.o util.o cl_params.o cl_params_aux.o $(TEST_OBJS)
@@ -27,6 +27,5 @@ clean:
 
 install: all
 	cp mpifitness.exe /usr/bin/
-	cp run_mpifitness.sh /usr/bin/
 	mkdir -p /usr/share/tests/mpifitness
 	cp -r conf/*.conf /usr/share/tests/mpifitness
