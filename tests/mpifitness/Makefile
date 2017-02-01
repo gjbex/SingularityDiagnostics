@@ -28,4 +28,5 @@ clean:
 install: all
 	cp mpifitness.exe /usr/bin/
 	cp run_mpifitness.sh /usr/bin/
-	cp -r conf /usr/share/tests/
+	mkdir -p /usr/share/tests/mpifitness
+	cp -r conf/*.conf /usr/share/tests/mpifitness
