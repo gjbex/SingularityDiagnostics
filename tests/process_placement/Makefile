@@ -9,6 +9,5 @@ all: process_placement.exe
 clean:
 	rm -f *.o *.exe
 
-install: process_placement.exe run_process_placement.sh
+install: process_placement.exe
 	cp process_placement.exe /usr/bin
-	cp run_process_placement.sh /usr/bin
