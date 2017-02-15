@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     }
     parseFileCL(&conf, argv[1]);
     if (rank == 0 && conf.verbose)
-        dumpCL(stderr, "# ", &conf);
+        dumpCL(stdout, "# ", &conf);
     MPI_Barrier(MPI_COMM_WORLD);
     if (conf.doPresent)
         present(MPI_COMM_WORLD, conf.verbose);
@@ -43,10 +43,10 @@ int main(int argc, char *argv[]) {
         allToAll(MPI_COMM_WORLD, conf);
     MPI_Barrier(MPI_COMM_WORLD);
     if (rank == 0) {
-        fprintf(stderr, "\n");
-        fprintf(stderr, "# -------------------------------\n");
-        fprintf(stderr, "# mpifitness finished succesfully\n");
-        fprintf(stderr, "# -------------------------------\n");
+        fprintf(stdout, "\n");
+        fprintf(stdout, "# -------------------------------\n");
+        fprintf(stdout, "# mpifitness finished succesfully\n");
+        fprintf(stdout, "# -------------------------------\n");
     }
     MPI_Finalize();
     return EXIT_SUCCESS;

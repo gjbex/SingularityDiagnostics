@@ -24,10 +24,10 @@ int reduce(MPI_Comm comm, Params conf) {
     for (i = 0; i < conf.reduce_size; i++)
         sBuff[i] = ((double) rand())/RAND_MAX;
     if (rank == 0 && conf.verbose) {
-        fprintf(stderr, "\n");
-        fprintf(stderr, "# -------------------------------\n");
-        fprintf(stderr, "# starting Reduce\n");
-        fprintf(stderr, "# -------------------------------\n");
+        fprintf(stdout, "\n");
+        fprintf(stdout, "# -------------------------------\n");
+        fprintf(stdout, "# starting Reduce\n");
+        fprintf(stdout, "# -------------------------------\n");
     }
     MPI_Barrier(comm);
     for (n = 0; n < conf.reduce_nr; n++) {
@@ -35,7 +35,7 @@ int reduce(MPI_Comm comm, Params conf) {
         for (i = 0; i < conf.reduce_size; i++)
             sBuff[i] += term;
         if (rank == 0 && conf.verbose > 1)
-            fprintf(stderr, "reduction(%d) %d to %d\n", conf.reduce_size, n, 0);
+            fprintf(stdout, "reduction(%d) %d to %d\n", conf.reduce_size, n, 0);
         report(conf, n, REDUCE, rank, 0, START);
         if (rank == 0)
             gettimeofday(&startTime, NULL);
@@ -49,12 +49,12 @@ int reduce(MPI_Comm comm, Params conf) {
         report(conf, n, REDUCE, rank, 0, END);
         if (rank == 0) {
             if (conf.verbose)
-                fprintf(stderr, "%d\t%ld\t%ld.%ld\n",
+                fprintf(stdout, "%d\t%ld\t%ld.%ld\n",
                         n, 1000000*(endTime.tv_sec - startTime.tv_sec) +
                         endTime.tv_usec - startTime.tv_usec,
                         endTime.tv_sec, endTime.tv_usec);
             if (conf.verbose > 1)
-                fprintf(stderr, "reduction %d done\n", n);
+                fprintf(stdout, "reduction %d done\n", n);
         }
         MPI_Barrier(comm);
     }

@@ -8,24 +8,24 @@
 void report(Params conf, int msgId, int type, int from, int to,
             int status) {
     if (conf.verbose > 1) {
-        fprintf(stderr, "%d: ", msgId);
+        fprintf(stdout, "%d: ", msgId);
         if (type == SEND)
-            fprintf(stderr, "%d -> %d", from , to);
+            fprintf(stdout, "%d -> %d", from , to);
         else if (type == RECV)
-            fprintf(stderr, "%d <- %d", to, from);
+            fprintf(stdout, "%d <- %d", to, from);
         else if (type == REDUCE)
-            fprintf(stderr, "reduce %d -> %d", from, to);
+            fprintf(stdout, "reduce %d -> %d", from, to);
         else if (type == ALL_TO_ALL)
-            fprintf(stderr, "allToAll %d", from);
+            fprintf(stdout, "allToAll %d", from);
         else
             warnx("unknown type");
         if (status == START)
-            fprintf(stderr, " start");
+            fprintf(stdout, " start");
         else if (status == END)
-            fprintf(stderr, " end");
+            fprintf(stdout, " end");
         else
             warnx("unknown status");
-        fprintf(stderr, "\n");
+        fprintf(stdout, "\n");
     }
 }
 

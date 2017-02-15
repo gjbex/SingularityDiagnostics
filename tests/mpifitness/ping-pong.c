@@ -31,10 +31,10 @@ int pingPong(MPI_Comm comm, Params conf) {
     }
     MPI_Comm_rank(comm, &rank);
     if (rank == 0 && conf.verbose) {
-        fprintf(stderr, "\n");
-        fprintf(stderr, "# -------------------------------\n");
-        fprintf(stderr, "# starting PingPong\n");
-        fprintf(stderr, "# -------------------------------\n");
+        fprintf(stdout, "\n");
+        fprintf(stdout, "# -------------------------------\n");
+        fprintf(stdout, "# starting PingPong\n");
+        fprintf(stdout, "# -------------------------------\n");
     }
     MPI_Barrier(comm);
     for (n = 0; n < conf.pp_nrMsgs; n++) {
@@ -43,7 +43,7 @@ int pingPong(MPI_Comm comm, Params conf) {
             source = rand() % size;
             dest = computeDestination(source, size);
             if (conf.verbose > 1)
-                fprintf(stderr, "sending msg %d from %d to %d\n",
+                fprintf(stdout, "sending msg %d from %d to %d\n",
                         n, source, dest);
         }
         MPI_Bcast(&source, 1, MPI_INT, 0, comm);
@@ -69,7 +69,7 @@ int pingPong(MPI_Comm comm, Params conf) {
             report(conf, n, RECV, dest, source, END);
             gettimeofday(&endTime, NULL);
             if (conf.verbose)
-                fprintf(stderr, "%d\t%d\t%d\t%ld\t%ld.%ld\n",
+                fprintf(stdout, "%d\t%d\t%d\t%ld\t%ld.%ld\n",
                         n, source, dest,
                         1000000*(endTime.tv_sec - startTime.tv_sec) +
                         endTime.tv_usec - startTime.tv_usec,
@@ -96,7 +96,7 @@ int pingPong(MPI_Comm comm, Params conf) {
         }
         MPI_Barrier(comm);
         if (conf.verbose > 1 && rank == 0)
-            fprintf(stderr, "sent msg %d\n", n);
+            fprintf(stdout, "sent msg %d\n", n);
     }
     free(sBuff);
     free(rBuff);

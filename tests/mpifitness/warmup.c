@@ -29,10 +29,10 @@ int warmup(MPI_Comm comm, Params conf) {
     }
     MPI_Comm_rank(comm, &rank);
     if (rank == 0 && conf.verbose) {
-        fprintf(stderr, "\n");
-        fprintf(stderr, "# -------------------------------\n");
-        fprintf(stderr, "# starting P2pWarmup\n");
-        fprintf(stderr, "# -------------------------------\n");
+        fprintf(stdout, "\n");
+        fprintf(stdout, "# -------------------------------\n");
+        fprintf(stdout, "# starting P2pWarmup\n");
+        fprintf(stdout, "# -------------------------------\n");
     }
     MPI_Barrier(comm);
     for (source = 0; source < size; source++) {
@@ -58,7 +58,7 @@ int warmup(MPI_Comm comm, Params conf) {
                 report(conf, n, RECV, dest, source, END);
                 gettimeofday(&endTime, NULL);
                 if (conf.verbose)
-                    fprintf(stderr, "%d\t%d\t%d\t%ld\t%ld.%ld\n",
+                    fprintf(stdout, "%d\t%d\t%d\t%ld\t%ld.%ld\n",
                             n, source, dest,
                             1000000*(endTime.tv_sec - startTime.tv_sec) +
                             endTime.tv_usec - startTime.tv_usec,

@@ -26,15 +26,15 @@ int allToAll(MPI_Comm comm, Params conf) {
             rBuff[i*nr + j] = -1;
         }
     if (rank == 0 && conf.verbose) {
-        fprintf(stderr, "\n");
-        fprintf(stderr, "# -------------------------------\n");
-        fprintf(stderr, "# starting AllToAll\n");
-        fprintf(stderr, "# -------------------------------\n");
+        fprintf(stdout, "\n");
+        fprintf(stdout, "# -------------------------------\n");
+        fprintf(stdout, "# starting AllToAll\n");
+        fprintf(stdout, "# -------------------------------\n");
     }
     MPI_Barrier(comm);
     for (n = 0; n < conf.allToAll_nr; n++) {
         if (rank == 0 && conf.verbose > 1)
-            fprintf(stderr, "allToAll(%d) %d\n", n, rank);
+            fprintf(stdout, "allToAll(%d) %d\n", n, rank);
         report(conf, n, ALL_TO_ALL, rank, -1, START);
         if (rank == 0)
             gettimeofday(&startTime, NULL);
@@ -49,12 +49,12 @@ int allToAll(MPI_Comm comm, Params conf) {
         report(conf, n, ALL_TO_ALL, rank, -1, END);
         if (rank == 0) {
             if (conf.verbose)
-                fprintf(stderr, "%d\t%ld\t%ld.%ld\n",
+                fprintf(stdout, "%d\t%ld\t%ld.%ld\n",
                         n, 1000000*(endTime.tv_sec - startTime.tv_sec) +
                         endTime.tv_usec - startTime.tv_usec,
                         endTime.tv_sec, endTime.tv_usec);
             if (conf.verbose > 1)
-                fprintf(stderr, "allToAll %d done\n", n);
+                fprintf(stdout, "allToAll %d done\n", n);
         }
         MPI_Barrier(comm);
     }
