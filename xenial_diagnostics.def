@@ -43,3 +43,4 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     done
     cd /tmp
     rm -rf SingularityDiagnostics
+    sed -i -e '/kernel.yama.ptrace_scope/ s/1/0/' /etc/sysctl.d/10-ptrace.conf
