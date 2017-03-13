@@ -25,6 +25,8 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     apt-get -y install openmpi-bin
     apt-get -y install openmpi-common
     apt-get -y install git
+    apt-get -y install vim
+    mkdir -p /user
     mkdir -p /usr/share/tests/
     cd /tmp
     if [ ! -e SingularityDiagnostics ]
@@ -44,3 +46,4 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     cd /tmp
     rm -rf SingularityDiagnostics
     sed -i -e '/kernel.yama.ptrace_scope/ s/1/0/' /etc/sysctl.d/10-ptrace.conf
+    echo 'echo 0 | tee /proc/sys/kernel/yama/ptrace_scope' > /etc/rc.local
