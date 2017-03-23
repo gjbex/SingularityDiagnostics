@@ -14,14 +14,14 @@ definition file.
 ## Example usage
 ```bash
 $ mpirun  --mca orte_tmpdir_base /tmp singularity exec diagnostics.img \
-    mpifitness /usr/share/tests/mpifitness/smallmsgs.conf
+    mpifitness.exe /usr/share/tests/mpifitness/smallmsgs.conf
 ```
 Note that the number of processes to run, but also process placement can
 be control from the host environment.
 
 ```bash
 $ mpirun  --mca orte_tmpdir_base /tmp singularity execdiagnostics.img \
-    process_placement
+    process_placement.exe
 ```
 
 ## Requirements
